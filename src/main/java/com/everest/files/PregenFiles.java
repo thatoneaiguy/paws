@@ -33,6 +33,7 @@ public class PregenFiles {
 
     public static void generateDefaultFiles() {
         File versionFile = new File(PAWS_DIR, "version.json");
+        File configFile = new File(PAWS_DIR, "config.json");
         File defaultDir = new File(PAWS_DIR, "default");
 
         boolean needsRegen = true;
@@ -51,11 +52,16 @@ public class PregenFiles {
             }
         }
 
+        if (!configFile.exists() && needsRegen == false) {
+            needsRegen = true;
+        }
+
         if (needsRegen) {
             if (versionFile.exists()) {
                 versionFile.delete();
             }
 
+            Config.writeConfigFile(configFile);
             deleteRecursive(defaultDir);
             writeVersionFile(versionFile);
             writeDefaultCosmeticJson();
@@ -83,13 +89,13 @@ public class PregenFiles {
 
         JsonObject earsJson = new JsonObject();
         earsJson.addProperty("active", false);
+        earsJson.addProperty("nsfw", false);
         earsJson.addProperty("name", "fox ears");
         earsJson.addProperty("texture", "null");
-        earsJson.addProperty("anchor", "head");
 
         JsonObject offset = new JsonObject();
-        offset.addProperty("x", 0);
-        offset.addProperty("y", 0);
+        offset.addProperty("x", -8);
+        offset.addProperty("y", 24);
         offset.addProperty("z", 0);
         earsJson.add("offset", offset);
 
