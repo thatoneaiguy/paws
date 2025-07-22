@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "paws",
+	"version": "${version}",
+	"name": "paws",
+	"description": "localised kemonomini cosmetics",
+	"authors": [
+		"eeverest"
+	],
+	"contact": {
+		"homepage": "https://thatoneaiguy.github.io/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/paws/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.everest.Paws"
+		],
+		"fabric-datagen": [
+			"com.everest.PawsDataGenerator"
+		]
+	},
+	"mixins": [
+		"paws.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
