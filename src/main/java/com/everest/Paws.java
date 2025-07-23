@@ -18,7 +18,7 @@ import java.util.UUID;
 public class Paws implements ModInitializer {
 	public static final String MOD_ID = "paws";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	public static final int COSMETIC_VERSION = 1;
+	public static final int COSMETIC_VERSION = 2;
 
 	@Override
 	public void onInitialize() {

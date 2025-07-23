@@ -66,4 +66,16 @@ public class CosmeticReader {
         }
         return Vec3d.ZERO;
     }
+
+    public Vec3d readDimensions(File file) {
+        JsonElement element = readCosmeticJson(file, "dimensions");
+        if (element != null && element.isJsonObject()) {
+            JsonObject obj = element.getAsJsonObject();
+            double x = obj.has("x") ? obj.get("x").getAsDouble() : 0.0;
+            double y = obj.has("y") ? obj.get("y").getAsDouble() : 0.0;
+            double z = obj.has("z") ? obj.get("z").getAsDouble() : 0.0;
+            return new Vec3d(x, y, z);
+        }
+        return Vec3d.ZERO;
+    }
 }
